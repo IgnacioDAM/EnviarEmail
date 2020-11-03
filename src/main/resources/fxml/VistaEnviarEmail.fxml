@@ -5,24 +5,17 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane fx:id="principalPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="523.0" minWidth="10.0" prefWidth="523.0" />
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="75.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints />
-      <RowConstraints />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <GridPane fx:id="datosPane" GridPane.rowIndex="2">
+<BorderPane fx:id="vista" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane fx:id="datosPane" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="80.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="295.0" />
@@ -45,60 +38,65 @@
             <TextField fx:id="nombreText" promptText="Nombre o IP del servidor" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <TextField fx:id="puertoText" promptText="Puerto" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <TextField fx:id="emailRemText" promptText="Email del remitente" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <TextField fx:id="emailDestText" promptText="Email del destinatario" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <TextField fx:id="asuntoText" promptText="Asunto del mensaje" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="5.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <CheckBox fx:id="conexionCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </CheckBox>
-            <TextField fx:id="mensajeText" alignment="TOP_LEFT" prefHeight="319.0" prefWidth="513.0" promptText="Mensaje" GridPane.columnSpan="3" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
             <PasswordField fx:id="contraseñaField" promptText="Contraseña" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </PasswordField>
+            <TextArea fx:id="mensajeArea" prefHeight="200.0" prefWidth="200.0" promptText="Mensaje" GridPane.columnSpan="3" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextArea>
          </children>
       </GridPane>
-      <VBox fx:id="botonesBox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2">
+   </center>
+   <right>
+      <VBox fx:id="botonesBox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="enviarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Enviar">
+            <Button fx:id="enviarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEnviarAction" text="Enviar">
                <VBox.margin>
                   <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="vaciarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Vaciar">
+            <Button fx:id="vaciarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onVaciarAction" text="Vaciar">
                <VBox.margin>
                   <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="cerrarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar">
+            <Button fx:id="cerrarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCerrarAction" text="Cerrar">
                <VBox.margin>
                   <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Button>
          </children>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin></VBox>
-   </children>
-</GridPane>
+      </VBox>
+   </right>
+</BorderPane>
